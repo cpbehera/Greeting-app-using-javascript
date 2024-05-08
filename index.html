@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting app</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #img_wrapper {
+      background-position: 100% 100%;
+      background-size: contain;
+      background-repeat: no-repeat !important;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* object-fit: contain; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="img_wrapper">
+    <h1 id="user_name"></h1>
+  </div>
+
+  <script>
+
+    function greeting(personName='Dear') {
+      let date = new Date();
+      let time = date.getHours();
+      let imgWrapper = document.querySelector('#img_wrapper');
+      let userName = document.querySelector('#user_name');
+
+
+      if (time >= 5 && time < 12) {
+        userName.innerText = `Hello ${personName} Good Morning`;
+        imgWrapper.style.background = `url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`;
+      } else if (time >= 12 && time < 18) {
+        userName.innerText = `Hello ${personName} Good Afternoon`;
+        imgWrapper.style.background = `url('https://images.unsplash.com/photo-1637052605299-81f0a42b03be?q=80&w=1507&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`;
+      } else {
+        userName.innerText = `Hello ${personName} Good Night`;
+        imgWrapper.style.background = `url('https://plus.unsplash.com/premium_photo-1675826638532-09d5c136dd7a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`;
+      }
+    }
+
+    greeting('Chinmaya');
+  </script>
+</body>
+
+</html>
